@@ -101,12 +101,15 @@ const BookDetails = () => {
             <Button
               className="w-full"
               variant={"destructive"}
-              onClick={() => removeFromCart(bookDetails?.isbn13)}
+              onClick={() => removeFromCart(bookDetails?.isbn13 as string)}
             >
               Remove from cart
             </Button>
           ) : (
-            <Button className="w-full" onClick={() => addToCart(bookDetails)}>
+            <Button
+              className="w-full"
+              onClick={() => addToCart(bookDetails as Book)}
+            >
               Add to cart
             </Button>
           )}

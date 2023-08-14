@@ -1,7 +1,14 @@
 import { Book } from "@/types";
 import { create } from "zustand";
 
-export const useCartStore = create((set) => ({
+type CartStore = {
+  cart: Book[];
+  addToCart: (item: Book) => void;
+  removeFromCart: (isbn13: string) => void;
+  clearCart: () => void;
+};
+
+export const useCartStore = create<CartStore>((set) => ({
   cart: [],
   addToCart: (item: Book) =>
     set((state: { cart: Book[] }) => ({
